@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT"
+	name="Vested Finance Web Automation">
+
+
+	<listeners>
+		<listener
+			class-name="com.investor.listeners.TestFilterListener" />
+		<listener class-name="com.investor.listeners.ExtentListeners" />
+		<listener
+			class-name="com.investor.listeners.AnnotationTransform" />
+		<!-- <listener class-name="com.investor.errorCollectors.TestListenerAdapter"/> -->
+	</listeners>
+	<test verbose="2" preserve-order="true"
+		name="Vested Finance Web Automation - Tests" thread-count="2"
+		parallel="methods">
+		
+		<groups>
+		<dependencies>
+		     <group depends-on= "IsCashAvailable" name= "CashRequired"></group>
+		     <group depends-on= "IsCashAvailableNonPremium" name= "NonPreniumCashRequired"></group>
+		</dependencies>
+		</groups>
+
+		<classes>
+			<class name="com.investor.test.FundsAvailabilityVerification" />
+			
+			<class name="com.investor.test.TaxDocuments" />
+			<class name="com.investor.test.DeleteNotInvestedDIYVest" />
+			<class name="com.investor.test.FundTransfer" />
+			<class name="com.investor.test.DashboardListVest" />
+			<class name="com.investor.test.TestSignup" />
+			<class name="com.investor.test.TestLogin" />
+			<class name="com.investor.test.VerifyTransactionHistory" />
+			<class
+				name="com.investor.test.KYCRegistrationForNonAadharIndianResidents" />
+			<class name="com.investor.test.KYCRegistrationForNRIResidents" />
+			<class name="com.investor.test.ETFsStocksAndOTCFlowVerification" />
+			<class name="com.investor.test.NegetiveInstrumentBuy" />
+			<class name="com.investor.test.ViewAllStocks" />
+			<class name="com.investor.test.InstrumentViewDetails" />
+			<class name="com.investor.test.InstrumentBuySell" />
+			<class name="com.investor.test.DIYVestSortingParameters" />
+			<class name="com.investor.test.ReferralTest" />
+			<class name="com.investor.test.VerifyNavigationMenu" />
+			<class name="com.investor.test.MonkeyTest" />
+			<class
+				name="com.investor.test.CreateRecurringInvestmentsFromMultiAssetClassVests" />
+			<class name="com.investor.test.DifferentUserProfile" />
+
+		</classes>
+	</test>
+</suite> 
+ 	 	
